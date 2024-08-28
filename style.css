@@ -1,0 +1,327 @@
+/* "vh" significa "altura da viewport". A viewport é a área visível da página no navegador do usuário. */   
+
+/* "em" é uma unidade relativa usada principalmente para definir tamanhos de fonte, espaçamentos, margens e preenchimentos.
+    permitindo um design flexível e escalável */
+
+*{ /*Aplica as regras a todos os elementos da página.*/
+    margin:0px; /*Remove todas as margens dos elementos.*/
+    padding:0px; /*Remove todos os espaçamentos internos (padding) dos elementos.*/
+    box-sizing: border-box; /*Inclui padding e bordas no cálculo da largura/altura dos elementos.*/
+    font-family: 'Poppins', sans-serif; /*Define a fonte "Poppins" como padrão.*/
+    text-decoration: none; /*Remove sublinhado de links e decorações de texto.*/
+}
+
+.header{
+    position: fixed; /*Fixa o cabeçalho no topo da página durante o scroll.*/
+    top: 0; /* Posiciona o cabeçalho no topo e ocupa 100% da largura. */
+    left: 0; /* Posiciona o cabeçalho no topo e ocupa 100% da largura. */
+    width: 100%; /* Posiciona o cabeçalho no topo e ocupa 100% da largura. */
+    padding: 35px 12%; /* Define espaçamento interno de 35px em cima/embaixo e 12% dos lados. */
+    background: black; /*Define o fundo do cabeçalho como preto.*/
+    backdrop-filter: blur(10px); /*Aplica um efeito de desfoque no fundo do cabeçalho.*/
+    display: flex; /* Usa flexbox para organizar o conteúdo do cabeçalho. */
+    justify-content: space-between; /* Distribui espaço entre os elementos, com um em cada extremidade. */
+    align-items: center; /*  Alinha verticalmente os itens no centro. */
+    z-index: 100; /* Define a prioridade de sobreposição para o cabeçalho. */
+}
+
+.logo{
+    font-size: 25px; /* Define o tamanho da fonte do logotipo. */
+    color: white; /* Define a cor do texto do logotipo como branco. */
+    font-weight: 600; /* Define a espessura do texto como semi-negrito. */
+    transition: 0.3s ease; /* Aplica uma transição suave de 0.3s nas mudanças de estilo. */
+}
+
+.logo:hover{ /* Aplica estilos quando o logotipo é "hovered" (passado o mouse por cima). */
+    background-image: linear-gradient(0deg, rgba(12,164,237,1) 36%, rgba(165,84,236,1) 63%); /* Cria um gradiente de cor para o fundo do texto. */
+    background-clip: text; /* Faz com que o gradiente preencha o texto. */
+    -webkit-background-clip: text; /* Faz com que o gradiente preencha o texto. */
+
+    -webkit-text-fill-color: transparent; /* Torna o preenchimento do texto transparente. */
+    text-shadow: 0 0 25px rgba(12,164,237,1), /* Adiciona sombras coloridas ao texto. */
+                 0 0 50px rgba(12,164,237,1);
+    transform: scale(1.1);  /*Aumenta o tamanho do logotipo em 10%. */
+}
+
+span{
+    background-image: linear-gradient(0deg, rgba(12,164,237,1) 36%, rgba(165,84,236,1) 63%);
+    color: black;
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent; 
+}
+
+.navbar a{ /* Estiliza os links da barra de navegação. */
+    font-size: 18px; /* Define o tamanho da fonte dos links. */
+    color: white; /* Define a cor dos links como branco. */
+    font-weight: 500; /* Define a espessura do texto como médio.*/
+    margin: 0 20px; /* Adiciona um espaçamento lateral de 20px ao redor dos links. */
+    border-bottom: 3px solid transparent; /* Define uma borda inferior transparente para criar um efeito ao passar o mouse. */
+    transition: 0.3s ease; /* Aplica uma transição suave de 0.3s nas mudanças de estilo. */
+}
+
+.navbar a:hover, /* Aplica estilos quando o link é "hovered" ou está ativo. */
+.navbar a.active{
+    background-image: linear-gradient(0deg, rgba(12,164,237,1) 36%, rgba(165,84,236,1) 63%);
+    background-clip: text;
+    -webkit-background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+    color: rgba(12,164,237,1); /*  Define a cor do texto como azul. */
+    border-bottom: 3px solid rgba(12,164,237,1); /*  Adiciona uma borda inferior azul. */
+}
+
+.contatos{
+    padding: 10px 28px; /* Define espaçamento interno de 10px vertical e 28px horizontal. */
+    background-color: white; /* Define a cor de fundo como branca. */
+    color: black;
+    border: 2px solid transparent; /* Define uma borda transparente. */
+    border-radius: 8px; /* Define bordas arredondadas. */
+    font-size: 16px;
+    letter-spacing: 1px; /*Adiciona espaçamento entre letras*/ 
+    transition: 0.3s ease;
+}
+
+.contact:hover{ /* Estiliza o botão de contato ao passar o mouse. */
+    background-color: rgba(12,164,237,1); /* Muda a cor de fundo para azul. */
+    box-shadow: 0 0 25px rgba(12,164,237,1); /* Adiciona uma sombra azul ao redor do botão. */
+    color: white;
+}
+
+.home{
+    width: 100%; /* Define a largura do elemento para 100% da largura da tela */
+    min-height: 100vh; /* Define a altura mínima para ocupar 100% da altura da janela de visualização. */
+    background: white;
+    display: flex; /* Aplica o modelo de layout flexbox para organizar o conteúdo dentro do elemento. */
+    align-items: center;
+    gap: 7em; /* Define um espaçamento de 7em entre os itens dentro do contêiner flexível. */
+    padding: 30px 12% 0; /* Adiciona um espaçamento interno (padding) de 30px no topo, 12% nas laterais e nenhum embaixo. */
+}
+
+.home-content{
+    max-width: 800px; /* Define a largura máxima do conteúdo para 800px. */
+}
+
+.home-content h3{
+    font-size: 42px;
+}
+
+.home-content h1{
+    font-size: 62px;
+    line-height: 1.2; /* Define a altura da linha para 1.2 vezes o tamanho da fonte, ajustando o espaçamento vertical entre as linhas. */
+}
+
+.home-content p{
+    font-size: 18px;
+    margin: 25px 0 30px; /* Define uma margem superior de 25px, nenhuma margem nas laterais, e uma margem inferior de 30px. */
+}
+
+.btn-box{
+    width: 400px;
+    display: flex;
+    gap: 2em; /* Define um espaçamento de 2em entre os botões */
+}
+
+.btn-1{
+    padding: 15px 28px;
+    background-color: black;
+    color: white;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font-size: 18px;
+    letter-spacing: 1px; /* Define o espaçamento entre as letras para 1px. */
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer; /* Altera o cursor para uma mãozinha quando o botão for sobreposto, indicando que é clicável. */
+}
+
+.btn-1:hover{
+    background-color: white;
+    color: black;
+    border: 2px solid black;
+}
+
+.btn-2{
+    padding: 15px 25px;
+    background-color: rgba(12,164,237,1);
+    color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.3s ease;
+    cursor: pointer;
+}
+
+.btn-2:hover{
+    background-color: white;
+    color: rgba(12,164,237,1);
+    border: 2px solid black;
+}
+
+.img-box img{
+    border-radius: 50%;
+    width: 550px;   
+}
+
+::-webkit-scrollbar{
+    width: 15px; /* Define a largura da barra de rolagem para 15px (aplicável apenas em navegadores baseados em WebKit). */
+}
+
+::-webkit-scrollbar-thumb{
+    background-color: rgba(12,164,237,1); /* Define a cor da parte rolável da barra de rolagem (thumb) com uma cor RGBA específica. */
+}
+
+::-webkit-scrollbar-track{
+    background-color: black; /* Define a cor do trilho da barra de rolagem como preta. */
+}
+
+.sobre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12% 8%;
+    gap: 10em; /* Define um espaçamento de 10em entre os itens. */
+    background: black;
+}
+
+.sobre-img .fotinho{
+    position: relative; /* Define a posição como relativa, permitindo ajustes em relação à sua posição normal. */
+    width: 550px;
+    box-shadow: 0 0 25px #D3D3D3,
+                0 0 50px #D3D3D3;
+    border-radius: 50%; 
+}
+
+.sobre-img .maria{
+    position: relative; /* Define a posição como relativa, permitindo ajustes em relação à sua posição normal. */
+    width: 550px;
+    box-shadow: 0 0 25px rgba(165,84,236,1),
+                0 0 50px rgba(165,84,236,1);
+    border-radius: 50%; 
+}
+
+.sobre-img .gustavo{
+    position: relative; /* Define a posição como relativa, permitindo ajustes em relação à sua posição normal. */
+    width: 550px;
+    box-shadow: 0 0 25px rgba(12,164,237,1),
+                0 0 50px rgba(12,164,237,1);
+    border-radius: 50%; 
+}
+
+.sobre-content h2{
+    text-align: left; /* Alinha o texto à esquerda. */
+    color: white;
+    font-size: 42px;
+}
+
+.sobre-content h3{
+    font-size: 62px;
+    color: white;
+}
+
+.sobre-content p{
+    color: white;
+    font-size: 20px;
+    margin: 2em 0 3em;
+}
+
+.contatos-form h2{
+    text-align: center;
+    margin-top: 3em;
+    margin-bottom: 1em; /* Define uma margem inferior de 1em. */
+    font-size: 36px;
+}
+
+.contatos-form form{
+    max-width: 50em;
+    margin: 1rem auto; /* Define uma margem de 1rem em cima */
+    text-align: center;
+    margin-bottom: 3em; 
+}
+
+.contatos-form form .input-box{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que os itens dentro do contêiner flexível se ajustem em múltiplas linhas, se necessário. */ 
+}
+
+.contatos-form form .input-box input,
+.contatos-form form textarea{
+    width: 100%;
+    padding: 1.5em; /* Define um espaçamento interno de 1.5em. */
+    font-size: 18px;
+    color: black;
+    background: white;
+    border-radius: .8rem; /* Adiciona cantos arredondados com raio de 0.8rem. */
+    margin: 1rem 0;
+    resize: none; /* Impede que o usuário redimensione o campo de texto <textarea>. */
+}
+
+.footer{
+    position: relative; /* Define a posição como relativa em relação ao fluxo normal da página. */
+    bottom: 0;
+    width: 100%;
+    padding: 40px 0;
+    background-color: black;
+}
+
+.footer .social{
+    text-align: center;
+    padding-bottom: 25px;
+    color: white;
+}
+
+.footer .social a{
+    font-size: 24px;
+    color: white;
+    border: 2px solid rgba(12,164,237,1);
+    width: 40px;
+    height: 40px;
+    line-height: 38px; /* Define a altura da linha como 38px, centralizando verticalmente o conteúdo. */
+    display: inline-block;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 8px;
+    box-shadow:  inset 0 0 10px rgba(12,164,237,1), 0 0 10px rgba(12,164,237,1); /* Adiciona sombras internas e externas ao redor do elemento. */
+    transition: 0.3s ease;
+}
+
+.footer .social a:hover{
+    transform: scale(1.2)translateY(-10px); /* Aplica uma transformação de escala para aumentar o tamanho do elemento em 1.2 vezes e movê-lo 10px para cima quando o link for sobreposto. */
+    color: white;
+    border: 2px solid rgba(12,164,237,1);
+}
+
+.footer ul{
+    margin-top: 0;
+    padding: 0;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.footer ul li a{
+    color: white;
+    border-bottom: 3px solid transparent;
+    transition: 0.3s ease;
+}
+
+.footer ul li a:hover{
+    border-bottom: 3px solid rgba(12,164,237,1);
+}
+
+.footer ul li{
+    display: inline-block;
+    padding: 0 15px;
+}
+
+.footer .copyright{
+    margin-top: 15px;
+    text-align: center;
+    font-size: 12px;
+    color: white;
+}

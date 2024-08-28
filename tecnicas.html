@@ -1,0 +1,302 @@
+<!-- Tabelas, Links internos e externos, imagem, Framework: icones, css interno, css externo e css inline, formulário, listas, navbar, footer,  -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfólio</title>
+    <link rel="shortcut icon" href="img/icone.png">
+    <link rel="stylesheet" href="style.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    
+    <style>
+        .center{
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            padding: 1px;
+            width: 500px;
+        }
+
+        @media print { /*  @media print aplica estilos específicos quando o conteúdo da página é impresso. 
+            Tudo dentro desse bloco será aplicado apenas na versão para impressão da página. 
+            
+            Isso permite personalizar o estilo da página para otimizar a aparência e a legibilidade no papel, 
+            diferentemente da visualização na tela. */
+
+            .tabela, .tabela_body {
+                overflow: visible; /* Define que qualquer conteúdo extra (por exemplo, se a tabela tiver 
+                mais dados do que pode caber no espaço visível na tela) deve ser exibido, em vez de ser cortado ou escondido. */
+                height: auto !important; /* Define que a altura da tabela e de seu corpo deve ser ajustada automaticamente 
+                para se adaptar ao conteúdo. */ 
+                width: auto !important; /* !important Força essa regra a ter prioridade sobre outras regras CSS que possam estar em conflito. 
+                Isso garante que a altura seja realmente ajustada para o conteúdo. */
+            }
+        }
+
+        main.tabela{
+            width: 40vw; /* Define a largura da tabela como 40% da largura da viewport (a área visível da página no navegador). 
+            A unidade vw significa "viewport width". */
+            height: 30vh;
+            background-color: #fff5;
+            backdrop-filter: blur(7px); /* Aplica um efeito de desfoque ao fundo da tabela. 
+            O fundo visível por trás da tabela será desfocado com uma intensidade de 7 pixels. */
+            border-radius: 0.8rem;
+            overflow: hidden; /* Especifica que qualquer conteúdo que ultrapasse os limites da tabela 
+            (tanto em largura quanto em altura) será oculto. */
+        }
+        
+        .tabela_header {
+            width: 100%;
+            height: 10%;
+            background-color: #fff4;
+            padding: .8rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .tabela_header .input-group {
+            width: 35%;
+            height: 100%;
+            background-color: #fff5;
+            padding: 0 .8rem;
+            border-radius: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: .2s;
+        }
+        
+        .tabela_header .input-group:hover {
+            width: 45%;
+            background-color: #fff8;
+            box-shadow: 0 .1rem .4rem #0002;
+        }
+        
+        .tabela_header .input-group img {
+            width: 1.2rem;
+            height: 1.2rem;
+        }
+        
+        .tabela_header .input-group input {
+            width: 100%;
+            padding: 0 .5rem 0 .3rem;
+            background-color: transparent;
+            border: none; /* Remove qualquer borda que o campo de entrada possa ter por padrão. */
+            outline: none; /* Remove o contorno que aparece ao redor do campo de entrada quando ele é focado (clicado ou navegado com o teclado). */
+        }
+        
+        .tabela_body {
+            width: 95%;
+            max-height: calc(89% - 1.6rem); /* Define a altura máxima do .table__body. Aqui, é usada a função calc() para calcular 
+            essa altura com base em 89% da altura do elemento pai, subtraindo 1.6rem. */
+            background-color: #fffb;
+        
+            margin: .8rem auto;
+            border-radius: .6rem;
+        
+            overflow: auto; /* Permite que o conteúdo do .table__body seja rolado se exceder a altura ou largura do contêiner. */
+            overflow: overlay; /* É uma propriedade que também trata do comportamento do rolar do conteúdo. */
+        }
+        
+        .tabela_body::-webkit-scrollbar{ /* Esta regra seleciona a barra de rolagem (scrollbar) de um elemento .table__body. 
+            ::-webkit-scrollbar é um elemento que permite personalizar a aparência da barra de rolagem 
+            em navegadores baseados no WebKit, como Chrome e Safari. */
+            width: 0.5rem;
+            height: 0.5rem;
+        }
+        
+        .tabela_body::-webkit-scrollbar-thumb{ /* Este elemento estiliza a "parte móvel" da barra de rolagem, conhecida como thumb, 
+        que o usuário arrasta para rolar o conteúdo. */
+            border-radius: .5rem;
+            background-color: #0004;
+            visibility: hidden; /* Torna a thumb invisível. */
+        }
+        
+        .tabela_body:hover::-webkit-scrollbar-thumb{ /* Aplica estilos à thumb da barra de rolagem quando o mouse passa sobre o elemento .table__body. */
+            visibility: visible; /* Torna a thumb visível quando o usuário passa o mouse sobre o .table__body. */
+        }
+        
+        table {
+            width: 100%;
+        }
+        
+        td img {
+            width: 36px;
+            height: 36px;
+            margin-right: .5rem;
+            border-radius: 50%;
+        
+            vertical-align: middle; /* alinhar verticalmente um elemento em relação à linha de base de seu elemento pai.  */
+        }
+        
+        table, th, td {
+            border-collapse: collapse;
+            padding: 1rem;
+            text-align: left; 
+        }
+        
+        tbody tr:nth-child(even) {
+            background-color: #0000000b; /* Aplica um estilo a todas as linhas pares (nth-child(even)) dentro de um elemento <tbody>. */
+        }
+        
+        tbody tr {
+            --delay: .1s; /* Define uma variável CSS chamada --delay com um valor de 0.1 segundos. As variáveis CSS (--variable-name) 
+            são usadas para armazenar valores que podem ser reutilizados em várias regras. */
+            transition: .5s ease-in-out var(--delay), background-color 0s; /* Define uma transição para todos os estilos do <tr> que 
+                durem 0.5 segundos com uma função de tempo ease-in-out, com um atraso definido pela variável --delay. */
+        }
+        
+        tbody tr.hide {
+            opacity: 0;
+            transform: translateX(100%);
+        }
+        
+        tbody tr:hover {
+            background-color: #fff6 !important;
+        }
+        
+        tbody tr.hide td,
+        tbody tr.hide td p {
+            padding: 0;
+            font: 0 / 0 sans-serif; /* Define o tamanho da fonte como 0 e o espaçamento entre linhas como 0, efetivamente tornando o texto invisível. 
+            sans-serif é uma família de fontes usada como fallback. */
+            transition: .2s ease-in-out .5s;
+        }
+        
+        @media (max-width: 1000px) { /* Aplica estilos apenas se a largura da tela for menor ou igual a 1000 pixels, 
+            facilitando a adaptação do layout para tamanhos de tela menores. */ 
+            td:not(:first-of-type) { /* Seleciona todas as células <td> exceto a primeira dentro de cada linha de tabela. */
+                min-width: 12.1rem; /* Define a largura mínima das células selecionadas como 12.1 rem, 
+                garantindo que elas não fiquem muito pequenas em telas menores. */
+            /* rem é uma unidade de medida em CSS que significa "root em" (em raiz). 
+            É usada para definir tamanhos relativos à fonte base (ou raiz) do documento */
+            }
+        }   
+       
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+
+    <header class="header">
+        <a href="index.html" class="logo"><span>Ma</span>ria & <span>Gusta</span>vo</a>
+    
+        <nav class="navbar">
+            <a href="index.html">Portfólio</a>
+            <a href="tecnicas.html" class="active">Habilidades</a>
+            <a href="experiencia.html">Experiência</a>
+        </nav>
+
+        <a href="#contact-form" class="contatos">Contate-nos</a>
+
+    </header>
+    <br><br><br><br><br><br><br><br><br>
+
+    <main class="tabela center" id="custom_tabela" style="box-shadow: 0 .4rem .8rem rgba(165,84,236,1);">
+        <br>
+        <section class="tabela_header">
+            <h1 style="color: rgba(165,84,236,1);">Maria Eduarda</h1>
+        </section>
+        <section class="tabela_body">
+            <table>
+                <tbody>
+                    <tr>
+                        <th> Profissão</th>
+                        
+                        <td> Desenvolvedora FullStack </td>
+                     
+                    </tr>
+                    <tr>
+                        <th> Habilidades</th>
+                        
+                        <td> HTML5, CSS3, Java, JavaScript, PHP, Python, C, C++, SQL, Git e Github </td>
+                       
+                    </tr>
+                    <tr>
+                        <th> Competências</th>
+                        
+                        <td> Inglês Intermediário, Comunicação, Liderança, Disciplina (arte marcial Taekwondo), Dedicação, entre outros </td>
+                       
+                    </tr>
+                    
+                </tbody>
+            </table>
+           
+        </section>
+    </main>
+    <br><br> <br><br> <br><br>
+    <main class="tabela center" id="custom_tabela" style="box-shadow: 0 .4rem .8rem rgba(12,164,237,1);">
+        <br>
+        <section class="tabela_header">
+            <h1 style="color: rgba(12,164,237,1);"> Gustavo </h1>
+        </section>
+        <section class="tabela_body">
+            <table>
+                <tbody>
+                    <tr>
+                        <th> Profissão</th>
+                        
+                        <td> Desenvolvedor FullStack </td>
+                     
+                    </tr>
+                    <tr>
+                        <th> Habilidades</th>
+                        
+                        <td> HTML5, Python, C, C++, Git e Github </td>
+                       
+                    </tr>
+                    <tr>
+                        <th> Competências</th>
+                        
+                        <td> Inglês Fluente, Comunicação e Apresentação, Curso de Teatro, Responsabilidade, entre outros </td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+           
+        </section>
+    </main>
+
+    <!-- Seção Contato -->
+    <section id = "contatos-form" class="contatos-form">
+        <h2 class="contatos-me">Fale <span>Conosco</span></h2>
+
+        <form>
+            <div class="input-box">
+                <input type="text" placeholder="Nome Completo">
+                <input type="email" placeholder="E-mail">
+            </div>
+
+            <div class="input-box">
+                <input type="number" placeholder="Telefone">
+                <input type="text" placeholder="Assunto">
+            </div>
+
+            <textarea cols="30" rows="10" placeholder="Sua Mensagem"></textarea>
+            <input class="btn-1" type="submit" value="Envie sua Mensagem">
+        </form>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+       
+        <div class="social">
+            <a href="https://br.linkedin.com/in/mariaeduardazanetti" target="_blank" style="box-shadow:  inset 0 0 10px rgba(165,84,236,1), 0 0 10px rgba(165,84,236,1);border: 2px solid rgba(165,84,236,1);"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://instagram.com/maariia.eduarda/" target="_blank" style="box-shadow:  inset 0 0 10px rgba(165,84,236,1), 0 0 10px rgba(165,84,236,1);border: 2px solid rgba(165,84,236,1);"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://github.com/DudaZT/" target="_blank" style="box-shadow:  inset 0 0 10px rgba(165,84,236,1), 0 0 10px rgba(165,84,236,1);border: 2px solid rgba(165,84,236,1);"><i class='bx bxl-github' ></i></a>
+            -
+            <a href="https://br.linkedin.com/in/gustavo-m-v-bernardo" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+            <a href="https://instagram.com/gutibernardo/" target="_blank"><i class='bx bxl-instagram' ></i></a>
+            <a href="https://github.com/gutibernardo/" target="_blank"><i class='bx bxl-github' ></i></a>
+        </div>
+
+        <p class="copyright">&copy; 2024 Maria Eduarda Zanetti e Gustavo | Todos os direitos reservados</p>
+        
+    </footer>
+</body>
+</html>
